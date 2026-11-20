@@ -14,8 +14,16 @@ Hour-ahead forecast of the total electric load of one office floor, using the CU
 
 **Results (test period)**
 
-_Results will be added after the next run. The notebook prints XGBoost against both baselines (MAE, RMSE, R²)._
+| Model | MAE [kW] | RMSE [kW] | R² |
+|---|---|---|---|
+| Previous hour (naive) | 9.32 | 19.54 | 0.60 |
+| Same hour last week (naive) | 4.50 | 11.72 | 0.86 |
+| **XGBoost** | **1.98** | **4.48** | **0.98** |
 
-Data isn't committed because of its size. Put `2019Floor6.csv` (or the course zip) next to the notebook.
+XGBoost cuts the error by more than half compared with the best naive baseline. The previous-hour
+baseline does badly because the office switches on and off in steps at the start and end of the day.
+The hour-of-day feature lets the model anticipate those steps.
+
+Data isn't committed because of its size. Put `2019Floor6.csv` or the course zip (`GroupF_Electric_Load_Data*.zip`) next to the notebook.
 
 *University group project (Group F), M.Sc. Smart Energy Systems.*
